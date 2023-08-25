@@ -1,0 +1,18 @@
+{
+  "status": 200,
+  "data": {
+    "puuid": "3345f084-d16f-5ff4-9408-95804a92b73e",
+    "region": "na",
+    "account_level": 1,
+    "name": "Mikiii",
+    "tag": "2299x",
+    "card": {
+      "small": "https://media.valorant-api.com/playercards/9fb348bc-41a0-91ad-8a3e-818035c4e561/smallart.png",
+      "large": "https://media.valorant-api.com/playercards/9fb348bc-41a0-91ad-8a3e-818035c4e561/largeart.png",
+      "wide": "https://media.valorant-api.com/playercards/9fb348bc-41a0-91ad-8a3e-818035c4e561/wideart.png",
+      "id": "9fb348bc-41a0-91ad-8a3e-818035c4e561"
+    },
+    "last_update": "Now",
+    "last_update_raw": 1692320751
+  }
+}
