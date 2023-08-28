@@ -4,8 +4,8 @@ type AccountInfoProps = {
   data: Data;
 };
 
-export const AccountInfo = ({ data }: AccountInfoProps) => {
-  const { account_level, card, last_update, name, region, tag } = data
+export function AccountInfo({ data: account }: AccountInfoProps) {
+  const { account_level, card, last_update, name, region, tag } = account
   return (
     <>
       < figure className='mt-2' > <img src={card.wide} alt="Movie" className="mt-2" /></ figure>

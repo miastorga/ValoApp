@@ -1,19 +1,17 @@
 import React, { useRef, useState } from 'react';
-import { AccountResponse } from '../services/account';
+import { getAccount } from '../services/account';
 import { AccountInfo } from './AccountInfo';
-import { useAccount } from '../hooks/useAccount';
+import { Error } from './Error';
+import type { ValorantSwaggerResponse } from '../types.d.ts'
+
+const ACCOUNT = 'https://api.henrikdev.xyz/valorant/v1/account/' // <----name/tag
 
 export const SearchAccount = () => {
   const refId = useRef<HTMLInputElement>(null);
   const refTagLine = useRef<HTMLInputElement>(null);
   const [url, setUrl] = useState<string | null>(null);
 
-  const { data, isLoading } = useAccount<AccountResponse>(url)
-
-  console.log(data?.data)
-  console.log(data?.errors)
-  console.log(data?.status)
-  console.log(isLoading)
+  const { data, isLoading } = getAccount<ValorantSwaggerResponse>(url)
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>): Promise<void> {
     e.preventDefault();
@@ -21,7 +19,7 @@ export const SearchAccount = () => {
     const inputTagLine = refTagLine.current?.value;
 
     if (inputName && inputTagLine) {
-      setUrl(`https://api.henrikdev.xyz/valorant/v1/account/${inputName}/${inputTagLine}`);
+      setUrl(`${ACCOUNT}${inputName}/${inputTagLine}`);
     }
   }
 
@@ -49,12 +47,7 @@ export const SearchAccount = () => {
           </div>
         </form>
         {data?.data && <AccountInfo data={data?.data} />}
-        {isLoading &&
-          <div className='text-center mb-4'>
-            <span className="loading loading-spinner text-accent text-center"></span>
-          </div>
-        }
-        {data?.errors && <h1>error</h1>}
+        {data?.errors && <Error status={data.status} />}
       </section>
     </>
   )

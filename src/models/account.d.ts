@@ -16,12 +16,3 @@ export type Card = {
   id: string;
 }
 
-export type ErrorResponse = {
-  errors: Error[]
-}
-
-type Error = {
-  message: string;
-  code: number;
-  details: string;
-}

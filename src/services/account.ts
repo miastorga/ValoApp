@@ -1,15 +1,18 @@
-import { Data, ErrorResponse } from "../models/account";
-import account from '../mocks/Swagger/account.json'
+import useSWR from "swr";
+import { MatchData } from "../models/matches";
 
-export type AccountResponse = {
-  status: number;
-  data?: Data,
-  errors?: ErrorResponse
+type ApiResponse<T> = {
+  data: T | undefined;
+  isLoading: boolean;
 }
+export const MATCH = 'https://api.henrikdev.xyz/valorant/v2/match/' //<---matchId
 
-// Usar desde custom hook
-export async function getAccount(name: string | undefined, tag: string | undefined): Promise<AccountResponse> {
-  const fetchData = await fetch(`https://api.henrikdev.xyz/valorant/v1/account/${name}/${tag}`)
-  const response: AccountResponse = await fetchData.json()
-  return response
+export function getAccount<T>(url: string | null): ApiResponse<T> {
+  const fetcher = (url: string) => fetch(url).then(res => res.json());
+  const { data, isLoading } = useSWR<T>(url, fetcher);
+
+  return {
+    data,
+    isLoading
+  };
 }

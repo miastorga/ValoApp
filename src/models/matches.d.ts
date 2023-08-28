@@ -1,8 +1,8 @@
 ﻿export interface Weather {
   status: number;
-  data: Data;
+  data: MatchData;
 }
-export interface Data {
+export interface MatchData {
   metadata: Metadata;
   players: Players;
   observers?: (null)[] | null;
