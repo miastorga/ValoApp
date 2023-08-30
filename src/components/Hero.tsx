@@ -1,4 +1,4 @@
-import background from '../assets/fondoHome.jpeg'
+import background from '../assets/fondoHome.webp'
 export const Hero = () => {
   return (
     <div className="hero min-h-[60vh]" style={{ backgroundImage: `url(${background})` }}>

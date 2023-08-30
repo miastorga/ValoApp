@@ -23,7 +23,6 @@ function localStorageProvider() {
   return map;
 }
 
-
 export const Home = () => {
   return (
     <main className="flex flex-col w-full bg-newBlack">
