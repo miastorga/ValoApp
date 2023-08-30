@@ -1,43 +1,58 @@
-﻿export interface Weather {
+﻿export interface MatchesResponse {
   status: number;
-  data: MatchData;
+  data: GameData[];
 }
-export interface MatchData {
+
+export type GameData = {
   metadata: Metadata;
   players: Players;
-  observers?: (null)[] | null;
-  coaches?: (null)[] | null;
+  observers?: any[]; // Use appropriate type if available
+  coaches?: any[];  // Use appropriate type if available
   teams: Teams;
-  rounds?: (RoundsEntity)[] | null;
-  kills?: (KillsEntity)[] | null;
-}
+  rounds: Round[];
+  kills?: any[];  // Use appropriate type if available
+};
+// metadata
+
 export interface Metadata {
-  map: string;
+  map: Map;
   game_version: string;
   game_length: number;
   game_start: number;
   game_start_patched: string;
   rounds_played: number;
-  mode: string;
-  mode_id: string;
+  mode: Mode;
+  mode_id: ModeID;
   queue: string;
   season_id: string;
   platform: string;
   matchid: string;
   premier_info: PremierInfo;
-  region: string | null;
+  region: Region;
   cluster: string;
 }
+
+export type Map = "Ascent" | "Split" | "Fracture" | "Bind" | "Breeze" | "District" | "Kasbah" | "Piazza" | "Lotus" | "Pearl" | "Icebox" | "Haven";
+
+export type Mode = "Competitive" | "Custom Game" | "Deathmatch" | "Escalation" | "Team Deathmatch" | "New Map" | "Replication" | "Snowball Fight" | "Spike Rush" | "Swiftplay" | "Unrated";
+
+export type ModeID = "competitive" | "custom" | "deathmatch" | "ggteam" | "hurm" | "newmap" | "onefa" | "snowball" | "spikerush" | "swiftplay" | "unrated";
+
+export type Region = "eu" | "na" | "ap" | "kr";
+
 export interface PremierInfo {
-  tournament_id: string | null;
-  matchup_id: string | null;
+  tournament_id?: string;  // nullable
+  matchup_id?: string;    // nullable
 }
-export interface Players {
-  all_players?: (AllPlayersEntityOrRedEntityOrBlueEntity)[] | null;
-  red?: (AllPlayersEntityOrRedEntityOrBlueEntity)[] | null;
-  blue?: (AllPlayersEntityOrRedEntityOrBlueEntity)[] | null;
-}
-export interface AllPlayersEntityOrRedEntityOrBlueEntity {
+
+// players
+export type Players = {
+  all_players: Player[],
+  red: Player[],
+  blue: Player[]
+};
+
+export interface Player {
   puuid: string;
   name: string;
   tag: string;
@@ -50,10 +65,10 @@ export interface AllPlayersEntityOrRedEntityOrBlueEntity {
   player_title: string;
   party_id: string;
   session_playtime: SessionPlaytime;
-  behavior: Behavior;
+  assets: Assets;
+  behaviour?: Behaviour;
   platform: Platform;
   ability_casts: AbilityCasts;
-  assets: Assets;
   stats: Stats;
   economy: Economy;
   damage_made: number;
@@ -64,44 +79,49 @@ export interface SessionPlaytime {
   seconds: number;
   milliseconds: number;
 }
-export interface Behavior {
-  afk_rounds: number;
-  friendly_fire: FriendlyFire;
-  rounds_in_spawn: number;
-}
-export interface FriendlyFire {
-  incoming: number;
-  outgoing: number;
-}
-export interface Platform {
-  type: string;
-  os: Os;
-}
-export interface Os {
-  name: string;
-  version: string;
-}
-export interface AbilityCasts {
-  c_cast: number;
-  q_cast: number;
-  e_cast: number;
-  x_cast: number;
-}
-export interface Assets {
-  card: Card;
-  agent: Agent;
-}
-export interface Card {
+
+export interface CardAssets {
   small: string;
   large: string;
   wide: string;
 }
-export interface Agent {
+
+export interface AgentAssets {
   small: string;
-  bust: string;
   full: string;
+  bust: string;
   killfeed: string;
 }
+
+export interface Assets {
+  card: CardAssets;
+  agent: AgentAssets;
+}
+
+export interface Behaviour {
+  afk_rounds: number;
+  friendly_fire: {
+    incoming: number;
+    outgoing: number;
+  };
+  rounds_in_spawn: number;
+}
+
+export interface Platform {
+  type: string;
+  os: {
+    name: string;
+    version: string;
+  };
+}
+
+export interface AbilityCasts {
+  c_cast?: number | null;
+  q_cast?: number | null;
+  e_cast?: number | null;
+  x_cast?: number | null;
+}
+
 export interface Stats {
   score: number;
   kills: number;
@@ -111,89 +131,94 @@ export interface Stats {
   headshots: number;
   legshots: number;
 }
+
 export interface Economy {
-  spent: SpentOrLoadoutValue;
-  loadout_value: SpentOrLoadoutValue;
+  spent: {
+    overall: number;
+    average: number;
+  };
+  loadout_value: {
+    overall: number;
+    average: number;
+  };
+  weapon?: Weapon;
+  armor?: Armor;
+  remaining?: number;
 }
-export interface SpentOrLoadoutValue {
-  overall: number;
-  average: number;
+export type PlayersList = Player[];
+
+// teams
+export type Teams = {
+  red: Team
+  blue: Team
 }
-export interface Teams {
-  red: RedOrBlue;
-  blue: RedOrBlue;
+
+export interface Customization {
+  icon: string;
+  image: string;
+  primary: string;
+  secondary: string;
+  tertiary: string;
 }
-export interface RedOrBlue {
-  has_won: boolean;
-  rounds_won: number;
-  rounds_lost: number;
-  roster?: null;
+
+export interface Roaster {
+  members: string[];
+  name: string;
+  tag: string;
+  customization: Customization;
 }
-export interface RoundsEntity {
-  winning_team: string;
-  end_type: string;
-  bomb_planted: boolean;
-  bomb_defused: boolean;
-  plant_events: PlantEvents;
-  defuse_events: DefuseEvents;
-  player_stats?: (PlayerStatsEntity)[] | null;
+
+export interface Team {
+  has_won?: boolean; // Nullable, por lo que es opcional.
+  rounds_won?: number; // Nullable, por lo que es opcional.
+  rounds_lost?: number; // Nullable, por lo que es opcional.
+  roaster?: Roaster | null; // Nullable, por lo que puede ser el tipo Roaster o null.
 }
+
+//rounds
+export const rounds: Round[] = [];
+export interface Coordinate {
+  x: number;
+  y: number;
+}
+
+export interface PlayerActionDetails {
+  puuid: string;
+  display_name: string;
+  team: string;
+}
+
 export interface PlantEvents {
-  plant_location?: PlantLocationOrVictimDeathLocationOrDefuseLocation | null;
-  planted_by?: PlantedByOrDefusedBy | null;
-  plant_site?: string | null;
-  plant_time_in_round?: number | null;
-  player_locations_on_plant?: (null)[] | null;
+  plant_location?: Coordinate;
+  planted_by?: PlayerActionDetails;
+  plant_site?: string;
+  plant_time_in_round?: number;
+  player_locations_on_plant?: PlayerLocation[];
 }
-export interface PlantLocationOrVictimDeathLocationOrDefuseLocation {
-  x: number;
-  y: number;
-}
-export interface PlantedByOrDefusedBy {
-  puuid: string;
-  display_name: string;
-  team: string;
-}
-export interface DefuseEvents {
-  defuse_location?: PlantLocationOrVictimDeathLocationOrDefuseLocation1 | null;
-  defused_by?: PlantedByOrDefusedBy1 | null;
-  defuse_time_in_round?: number | null;
-  player_locations_on_defuse?: (null)[] | null;
-}
-export interface PlantLocationOrVictimDeathLocationOrDefuseLocation1 {
-  x: number;
-  y: number;
-}
-export interface PlantedByOrDefusedBy1 {
-  puuid: string;
-  display_name: string;
-  team: string;
-}
-export interface PlayerStatsEntity {
-  ability_casts: AbilityCasts1;
+
+export interface PlayerLocation {
   player_puuid: string;
   player_display_name: string;
   player_team: string;
-  damage_events?: (DamageEventsEntity | null)[] | null;
-  damage: number;
-  bodyshots: number;
-  headshots: number;
-  legshots: number;
-  kill_events?: (KillEventsEntity | null)[] | null;
-  kills: number;
-  score: number;
-  economy: Economy1;
-  was_afk: boolean;
-  was_penalized: boolean;
-  stayed_in_spawn: boolean;
+  location: Coordinate;
+  view_radians: number;
 }
-export interface AbilityCasts1 {
-  c_casts?: null;
-  q_casts?: null;
-  e_cast?: null;
-  x_cast?: null;
+
+export interface DefuseEvents {
+  defuse_location?: Coordinate;
+  defused_by?: PlayerActionDetails;
+  defuse_time_in_round?: number;
+  player_locations_on_defuse?: PlayerLocation[];
 }
-export interface DamageEventsEntity {
+
+export interface AbilityCastsDetails {
+  c_casts: any;
+  q_casts: any;
+  e_casts: any;
+  x_casts: any;
+}
+
+export interface DamageEvent {
   receiver_puuid: string;
   receiver_display_name: string;
   receiver_team: string;
@@ -202,80 +227,77 @@ export interface DamageEventsEntity {
   headshots: number;
   legshots: number;
 }
-export interface KillEventsEntity {
-  kill_time_in_round: number;
-  kill_time_in_match: number;
-  killer_puuid: string;
-  killer_display_name: string;
-  killer_team: string;
-  victim_puuid: string;
-  victim_display_name: string;
-  victim_team: string;
-  victim_death_location: PlantLocationOrVictimDeathLocationOrDefuseLocation2;
-  damage_weapon_id: string;
-  damage_weapon_name?: string | null;
-  damage_weapon_assets: DamageWeaponAssets;
-  secondary_fire_mode: boolean;
-  player_locations_on_kill?: (null)[] | null;
-  assistants?: (AssistantsEntity | null)[] | null;
+
+export interface WeaponAssets {
+  display_icon: string;
+  killfeed_icon: string;
 }
-export interface PlantLocationOrVictimDeathLocationOrDefuseLocation2 {
-  x: number;
-  y: number;
+
+export interface Weapon {
+  id: string;
+  name: string;
+  assets: WeaponAssets;
 }
-export interface DamageWeaponAssets {
-  display_icon?: string | null;
-  killfeed_icon?: string | null;
+
+export interface Armor {
+  id: string;
+  name: string;
+  assets: WeaponAssets;
 }
-export interface AssistantsEntity {
-  assistant_puuid: string;
-  assistant_display_name: string;
-  assistant_team: string;
-}
-export interface Economy1 {
+
+export interface Economy {
   loadout_value: number;
   weapon: Weapon;
   armor: Armor;
   remaining: number;
   spent: number;
 }
-export interface Weapon {
-  id: string;
-  name: string;
-  assets: AssetsOrDamageWeaponAssets;
-}
-export interface AssetsOrDamageWeaponAssets {
-  display_icon: string;
-  killfeed_icon: string;
-}
-export interface Armor {
-  id?: string | null;
-  name?: string | null;
-  assets: Assets1;
-}
-export interface Assets1 {
-  display_icon?: string | null;
-}
-export interface KillsEntity {
+
+export interface KillEvent {
   kill_time_in_round: number;
   kill_time_in_match: number;
-  round: number;
   killer_puuid: string;
   killer_display_name: string;
   killer_team: string;
   victim_puuid: string;
   victim_display_name: string;
   victim_team: string;
-  victim_death_location: PlantLocationOrVictimDeathLocationOrDefuseLocation2;
+  victim_death_location: Coordinate;
   damage_weapon_id: string;
-  damage_weapon_name?: string | null;
-  damage_weapon_assets: DamageWeaponAssets;
+  damage_weapon_name: string;
+  damage_weapon_assets: WeaponAssets;
   secondary_fire_mode: boolean;
-  player_locations_on_kill?: (null)[] | null;
-  assistants?: (AssistantsEntity1 | null)[] | null;
+  player_locations_on_kill: PlayerLocation[];
+  assistants: PlayerActionDetails[];
 }
-export interface AssistantsEntity1 {
-  assistant_puuid: string;
-  assistant_display_name: string;
-  assistant_team: string;
+
+export interface PlayerStat {
+  ability_casts: AbilityCastsDetails;
+  player_puuid: string;
+  player_display_name: string;
+  player_team: string;
+  damage_events: DamageEvent[];
+  damage: number;
+  bodyshots: number;
+  headshots: number;
+  legshots: number;
+  kill_events: KillEvent[];
+  kills: number;
+  score: number;
+  economy: Economy;
+  was_afk: boolean;
+  was_penalized: boolean;
+  stayed_in_spawn: boolean;
 }
+
+export interface Round {
+  winning_team: string;
+  end_type: string;
+  bomb_planted?: boolean;
+  bomb_defused?: boolean;
+  plant_events?: PlantEvents;
+  defuse_events?: DefuseEvents;
+  player_stats: PlayerStat[];
+}
+
+

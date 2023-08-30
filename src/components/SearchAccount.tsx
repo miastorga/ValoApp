@@ -2,7 +2,10 @@ import React, { useRef, useState } from 'react';
 import { getAccount } from '../services/account';
 import { AccountInfo } from './AccountInfo';
 import { Error } from './Error';
-import type { ValorantSwaggerResponse } from '../types.d.ts'
+import matchMock from '../mocks/Swagger/match.json'
+import { MatchMetada } from './MatchMetada';
+import { Metadata, Players } from "../models/matches"
+import { MatchPlayers } from './MatchPlayers';
 
 const ACCOUNT = 'https://api.henrikdev.xyz/valorant/v1/account/' // <----name/tag
 
@@ -10,8 +13,9 @@ export const SearchAccount = () => {
   const refId = useRef<HTMLInputElement>(null);
   const refTagLine = useRef<HTMLInputElement>(null);
   const [url, setUrl] = useState<string | null>(null);
-
-  const { data, isLoading } = getAccount<ValorantSwaggerResponse>(url)
+  const { data, isLoading } = getAccount(url)
+  const { metadata, rounds, teams, players } = matchMock.data[0]
+  // console.log(matchMock.data[0])
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>): Promise<void> {
     e.preventDefault();
@@ -26,7 +30,7 @@ export const SearchAccount = () => {
   return (
     <>
       <h1 className='mt-4 text-4xl text-center'>Search account</h1>
-      <section>
+      <article>
         <form className="m-6 flex justify-center gap-5 items-center" onSubmit={handleSubmit}>
           <div className="flex flex-col items-center gap-3 lg:flex-row">
             <div className="grid flex-grow h-20 card bg-base-300 rounded-box place-items-center">
@@ -36,7 +40,12 @@ export const SearchAccount = () => {
               <input type="text" ref={refTagLine} placeholder="TAGLINE" className="input input-error w-full max-w-xs" />
             </div>
             <div className="grid h-20 flex-grow card bg-base-300 rounded-box place-items-center">
-              {!isLoading && <button className="btn btn-error" type='submit'>Watch</button>}
+              {!isLoading && <button className="btn btn-error" type='submit'>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+                </svg>
+
+                Search</button>}
               {
                 isLoading && <button className="btn">
                   <span className="loading loading-spinner text-accent"></span>
@@ -48,7 +57,9 @@ export const SearchAccount = () => {
         </form>
         {data?.data && <AccountInfo data={data?.data} />}
         {data?.errors && <Error status={data.status} />}
-      </section>
+      </article>
+      <MatchMetada metadata={metadata as Metadata} />
+      <MatchPlayers playersData={players as Players} />
     </>
   )
 }
