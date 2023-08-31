@@ -18,6 +18,7 @@ export const Agents = () => {
                 <figure >
                   <img className='w-40' src={agent.displayIcon} />
                 </figure>
+
               </div>
             </div>
           </Link>
