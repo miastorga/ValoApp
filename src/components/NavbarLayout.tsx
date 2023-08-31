@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
+import { Github } from './Icons'
 
 export const NavbarLayout = () => {
   const { pathname } = useLocation()
@@ -42,8 +43,11 @@ export const NavbarLayout = () => {
           }
         </ul>
       </div>
-      <div className="navbar-end">
-        <a className="btn">Button</a>
+      <div className="navbar-end ">
+        <Link to={'https://github.com/miastorga'} className='text-newWhite flex justify-center items-center flex-row btn btn-error sm:btn-sm md:btn-md '>
+          Github
+          <Github width='50' height='50' />
+        </Link>
       </div>
     </div >
   )

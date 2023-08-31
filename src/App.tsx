@@ -7,6 +7,7 @@ import { Buddies } from './pages/Buddies'
 import { Gamemodes } from './pages/Gamemodes'
 import { Maps } from './pages/Maps'
 import { Weapons } from './pages/Weapons'
+import { AgentsDetail } from './pages/AgentsDetail'
 function App() {
   return (
     <BrowserRouter>
@@ -14,6 +15,7 @@ function App() {
         <Route element={<PageLayout />}>
           <Route path='/' element={<Home />} />
           <Route path='/agents' element={<Agents />} />
+          <Route path='/agents/:uuid' element={<AgentsDetail />} />
           <Route path='/buddies' element={<Buddies />} />
           <Route path='/gamemodes' element={<Gamemodes />} />
           <Route path='/maps' element={<Maps />} />

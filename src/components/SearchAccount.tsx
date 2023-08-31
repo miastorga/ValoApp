@@ -59,14 +59,18 @@ export const SearchAccount = () => {
         {data?.errors && <Error status={data.status} />}
       </article>
       {
-        matches?.data[0] && (
-          <>
-            <div className="text-center text-5xl mb-0">
-              <h1>Last match</h1>
-            </div>
-            <MatchMetada metadata={matches?.data[0].metadata as Metadata} />
-            <MatchPlayers playersData={matches?.data[0].players as Players} teams={matches?.data[0].teams} />
-          </>
+        loadingMatches ? (
+          <span className="loading loading-spinner text-accent mb-5"></span>
+        ) : (
+          matches?.data[0] && (
+            <>
+              <div className="text-center text-5xl mb-0">
+                <h1>Last match</h1>
+              </div>
+              <MatchMetada metadata={matches?.data[0].metadata as Metadata} />
+              <MatchPlayers playersData={matches?.data[0].players as Players} teams={matches?.data[0].teams} />
+            </>
+          )
         )
       }
     </>

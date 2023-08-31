@@ -32,6 +32,7 @@
         "displayIcon": "https://media.valorant-api.com/agents/roles/1b47567f-8f7b-444b-aae3-b0c634622d10/displayicon.png",
         "assetPath": "ShooterGame/Content/Characters/_Core/Roles/Breaker_PrimaryDataAsset"
       },
+      "recruitmentData": null,
       "abilities": [
         {
           "slot": "Ability1",
@@ -101,6 +102,7 @@
         "displayIcon": "https://media.valorant-api.com/agents/roles/1b47567f-8f7b-444b-aae3-b0c634622d10/displayicon.png",
         "assetPath": "ShooterGame/Content/Characters/_Core/Roles/Breaker_PrimaryDataAsset"
       },
+      "recruitmentData": null,
       "abilities": [
         {
           "slot": "Ability1",
@@ -170,6 +172,7 @@
         "displayIcon": "https://media.valorant-api.com/agents/roles/1b47567f-8f7b-444b-aae3-b0c634622d10/displayicon.png",
         "assetPath": "ShooterGame/Content/Characters/_Core/Roles/Breaker_PrimaryDataAsset"
       },
+      "recruitmentData": null,
       "abilities": [
         {
           "slot": "Ability1",
@@ -238,6 +241,15 @@
         "description": "Sentinels are defensive experts who can lock down areas and watch flanks, both on attacker and defender rounds.",
         "displayIcon": "https://media.valorant-api.com/agents/roles/5fc02f99-4091-4486-a531-98459a3e95e9/displayicon.png",
         "assetPath": "ShooterGame/Content/Characters/_Core/Roles/Sentinel_PrimaryDataAsset"
+      },
+      "recruitmentData": {
+        "counterId": "7ec37a1e-4526-77dd-1afd-e2ab3b624085",
+        "milestoneId": "fcca98dc-4a83-2837-9512-f88a0a08fcfd",
+        "milestoneThreshold": 200000,
+        "useLevelVpCostOverride": false,
+        "levelVpCostOverride": 0,
+        "startDate": "2023-06-27T00:00:00Z",
+        "endDate": "2023-07-25T21:00:00Z"
       },
       "abilities": [
         {
@@ -310,6 +322,7 @@
         "displayIcon": "https://media.valorant-api.com/agents/roles/dbe8757e-9e92-4ed4-b39f-9dfc589691d4/displayicon.png",
         "assetPath": "ShooterGame/Content/Characters/_Core/Roles/Assault_PrimaryDataAsset"
       },
+      "recruitmentData": null,
       "abilities": [
         {
           "slot": "Ability1",
@@ -379,6 +392,7 @@
         "displayIcon": "https://media.valorant-api.com/agents/roles/5fc02f99-4091-4486-a531-98459a3e95e9/displayicon.png",
         "assetPath": "ShooterGame/Content/Characters/_Core/Roles/Sentinel_PrimaryDataAsset"
       },
+      "recruitmentData": null,
       "abilities": [
         {
           "slot": "Ability2",
@@ -448,6 +462,7 @@
         "displayIcon": "https://media.valorant-api.com/agents/roles/1b47567f-8f7b-444b-aae3-b0c634622d10/displayicon.png",
         "assetPath": "ShooterGame/Content/Characters/_Core/Roles/Breaker_PrimaryDataAsset"
       },
+      "recruitmentData": null,
       "abilities": [
         {
           "slot": "Grenade",
@@ -517,6 +532,7 @@
         "displayIcon": "https://media.valorant-api.com/agents/roles/1b47567f-8f7b-444b-aae3-b0c634622d10/displayicon.png",
         "assetPath": "ShooterGame/Content/Characters/_Core/Roles/Breaker_PrimaryDataAsset"
       },
+      "recruitmentData": null,
       "abilities": [
         {
           "slot": "Ability1",
@@ -589,6 +605,7 @@
         "displayIcon": "https://media.valorant-api.com/agents/roles/5fc02f99-4091-4486-a531-98459a3e95e9/displayicon.png",
         "assetPath": "ShooterGame/Content/Characters/_Core/Roles/Sentinel_PrimaryDataAsset"
       },
+      "recruitmentData": null,
       "abilities": [
         {
           "slot": "Ability1",
@@ -661,6 +678,7 @@
         "displayIcon": "https://media.valorant-api.com/agents/roles/1b47567f-8f7b-444b-aae3-b0c634622d10/displayicon.png",
         "assetPath": "ShooterGame/Content/Characters/_Core/Roles/Breaker_PrimaryDataAsset"
       },
+      "recruitmentData": null,
       "abilities": [
         {
           "slot": "Ability1",
@@ -739,6 +757,7 @@
         "displayIcon": "https://media.valorant-api.com/agents/roles/5fc02f99-4091-4486-a531-98459a3e95e9/displayicon.png",
         "assetPath": "ShooterGame/Content/Characters/_Core/Roles/Sentinel_PrimaryDataAsset"
       },
+      "recruitmentData": null,
       "abilities": [
         {
           "slot": "Grenade",
@@ -808,6 +827,7 @@
         "displayIcon": "https://media.valorant-api.com/agents/roles/4ee40330-ecdd-4f2f-98a8-eb1243428373/displayicon.png",
         "assetPath": "ShooterGame/Content/Characters/_Core/Roles/Strategist_PrimaryDataAsset"
       },
+      "recruitmentData": null,
       "abilities": [
         {
           "slot": "Ability1",
@@ -879,6 +899,7 @@
         "displayIcon": "https://media.valorant-api.com/agents/roles/4ee40330-ecdd-4f2f-98a8-eb1243428373/displayicon.png",
         "assetPath": "ShooterGame/Content/Characters/_Core/Roles/Strategist_PrimaryDataAsset"
       },
+      "recruitmentData": null,
       "abilities": [
         {
           "slot": "Ability1",
@@ -957,6 +978,7 @@
         "displayIcon": "https://media.valorant-api.com/agents/roles/dbe8757e-9e92-4ed4-b39f-9dfc589691d4/displayicon.png",
         "assetPath": "ShooterGame/Content/Characters/_Core/Roles/Assault_PrimaryDataAsset"
       },
+      "recruitmentData": null,
       "abilities": [
         {
           "slot": "Grenade",
@@ -1032,6 +1054,7 @@
         "displayIcon": "https://media.valorant-api.com/agents/roles/4ee40330-ecdd-4f2f-98a8-eb1243428373/displayicon.png",
         "assetPath": "ShooterGame/Content/Characters/_Core/Roles/Strategist_PrimaryDataAsset"
       },
+      "recruitmentData": null,
       "abilities": [
         {
           "slot": "Ability1",
@@ -1110,6 +1133,7 @@
         "displayIcon": "https://media.valorant-api.com/agents/roles/4ee40330-ecdd-4f2f-98a8-eb1243428373/displayicon.png",
         "assetPath": "ShooterGame/Content/Characters/_Core/Roles/Strategist_PrimaryDataAsset"
       },
+      "recruitmentData": null,
       "abilities": [
         {
           "slot": "Grenade",
@@ -1179,6 +1203,7 @@
         "displayIcon": "https://media.valorant-api.com/agents/roles/dbe8757e-9e92-4ed4-b39f-9dfc589691d4/displayicon.png",
         "assetPath": "ShooterGame/Content/Characters/_Core/Roles/Assault_PrimaryDataAsset"
       },
+      "recruitmentData": null,
       "abilities": [
         {
           "slot": "Ability2",
@@ -1248,6 +1273,7 @@
         "displayIcon": "https://media.valorant-api.com/agents/roles/dbe8757e-9e92-4ed4-b39f-9dfc589691d4/displayicon.png",
         "assetPath": "ShooterGame/Content/Characters/_Core/Roles/Assault_PrimaryDataAsset"
       },
+      "recruitmentData": null,
       "abilities": [
         {
           "slot": "Grenade",
@@ -1320,6 +1346,7 @@
         "displayIcon": "https://media.valorant-api.com/agents/roles/5fc02f99-4091-4486-a531-98459a3e95e9/displayicon.png",
         "assetPath": "ShooterGame/Content/Characters/_Core/Roles/Sentinel_PrimaryDataAsset"
       },
+      "recruitmentData": null,
       "abilities": [
         {
           "slot": "Ability1",
@@ -1392,6 +1419,7 @@
         "displayIcon": "https://media.valorant-api.com/agents/roles/dbe8757e-9e92-4ed4-b39f-9dfc589691d4/displayicon.png",
         "assetPath": "ShooterGame/Content/Characters/_Core/Roles/Assault_PrimaryDataAsset"
       },
+      "recruitmentData": null,
       "abilities": [
         {
           "slot": "Ability1",
@@ -1464,6 +1492,7 @@
         "displayIcon": "https://media.valorant-api.com/agents/roles/4ee40330-ecdd-4f2f-98a8-eb1243428373/displayicon.png",
         "assetPath": "ShooterGame/Content/Characters/_Core/Roles/Strategist_PrimaryDataAsset"
       },
+      "recruitmentData": null,
       "abilities": [
         {
           "slot": "Ability1",
@@ -1536,6 +1565,7 @@
         "displayIcon": "https://media.valorant-api.com/agents/roles/dbe8757e-9e92-4ed4-b39f-9dfc589691d4/displayicon.png",
         "assetPath": "ShooterGame/Content/Characters/_Core/Roles/Assault_PrimaryDataAsset"
       },
+      "recruitmentData": null,
       "abilities": [
         {
           "slot": "Ability1",
