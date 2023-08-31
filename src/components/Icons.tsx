@@ -65,3 +65,234 @@ export const Skull = ({ width, height }: Props) => {
     </svg>
   )
 }
+export const Crown = ({ width, height }: Props) => {
+  return (
+    <svg width={`${width}px`} height={`${height}px`} viewBox="0 0 24.00 24.00" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#fbff00" transform="matrix(-1, 0, 0, 1, 0, 0)rotate(0)">
+
+      <g id="SVGRepo_bgCarrier" strokeWidth="0" />
+
+      <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round" />
+
+      <g id="SVGRepo_iconCarrier"> <path d="M4 8L6 20H18L20 8M4 8L5.71624 9.37299C6.83218 10.2657 7.39014 10.7121 7.95256 10.7814C8.4453 10.8421 8.94299 10.7173 9.34885 10.4314C9.81211 10.1051 10.0936 9.4483 10.6565 8.13476L12 5M4 8C4.55228 8 5 7.55228 5 7C5 6.44772 4.55228 6 4 6C3.44772 6 3 6.44772 3 7C3 7.55228 3.44772 8 4 8ZM20 8L18.2838 9.373C17.1678 10.2657 16.6099 10.7121 16.0474 10.7814C15.5547 10.8421 15.057 10.7173 14.6511 10.4314C14.1879 10.1051 13.9064 9.4483 13.3435 8.13476L12 5M20 8C20.5523 8 21 7.55228 21 7C21 6.44772 20.5523 6 20 6C19.4477 6 19 6.44772 19 7C19 7.55228 19.4477 8 20 8ZM12 5C12.5523 5 13 4.55228 13 4C13 3.44772 12.5523 3 12 3C11.4477 3 11 3.44772 11 4C11 4.55228 11.4477 5 12 5ZM12 4H12.01M20 7H20.01M4 7H4.01" stroke="#ffdd00" strokeWidth="0.9600000000000002" strokeLinecap="round" strokeLinejoin="round" /> </g>
+
+    </svg>
+  )
+}
+export const Clown = ({ width, height }: Props) => {
+  return (
+    <svg width={`${width}px`} height={`${height}px`} viewBox="0 0 128 128" waria-hidden="true" role="img" preserveAspectRatio="xMidYMid meet">
+      <radialGradient id="IconifyId17ecdb2904d178eab6091" cx="63.52" cy="2521.55" r="56.95" gradientTransform="translate(0 -2458.67)" gradientUnits="userSpaceOnUse">
+
+        <stop offset=".5" stopColor="#ffffff">
+
+        </stop>
+
+        <stop offset=".76" stopColor="#fdfdfd">
+
+        </stop>
+
+        <stop offset=".87" stopColor="#f6f6f6">
+
+        </stop>
+
+        <stop offset=".96" stopColor="#e9e9e9">
+
+        </stop>
+
+        <stop offset="1" stopColor="#e0e0e0">
+
+        </stop>
+
+      </radialGradient>
+
+      <path d="M63.52 7c-30.09 0-58 20-58 55.83c0 36.09 27.87 55.93 58 55.93s58-19.35 58-55.93c-.13-36.24-28-55.83-58-55.83z" fill="url(#IconifyId17ecdb2904d178eab6091)">
+
+      </path>
+
+      <radialGradient id="IconifyId17ecdb2904d178eab6092" cx="99.468" cy="-62.305" r="20.97" gradientTransform="matrix(1 0 0 -.73 0 26.24)" gradientUnits="userSpaceOnUse">
+
+        <stop offset="0" stopColor="#ed7770">
+
+        </stop>
+
+        <stop offset=".08" stopColor="#ed7770" stopOpacity=".97">
+
+        </stop>
+
+        <stop offset=".21" stopColor="#ed7770" stopOpacity=".88">
+
+        </stop>
+
+        <stop offset=".35" stopColor="#ed7770" stopOpacity=".74">
+
+        </stop>
+
+        <stop offset=".52" stopColor="#ed7770" stopOpacity=".55">
+
+        </stop>
+
+        <stop offset=".71" stopColor="#ed7770" stopOpacity=".29">
+
+        </stop>
+
+        <stop offset=".9" stopColor="#ed7770" stopOpacity="0">
+
+        </stop>
+
+      </radialGradient>
+
+      <ellipse cx="99.47" cy="71.77" rx="19.27" ry="14.77" fill="url(#IconifyId17ecdb2904d178eab6092)">
+
+      </ellipse>
+
+      <g>
+
+        <radialGradient id="IconifyId17ecdb2904d178eab6093" cx="29.22" cy="-62.305" r="20.97" gradientTransform="matrix(1 0 0 -.73 0 26.24)" gradientUnits="userSpaceOnUse">
+
+          <stop offset="0" stopColor="#ed7770">
+
+          </stop>
+
+          <stop offset=".08" stopColor="#ed7770" stopOpacity=".97">
+
+          </stop>
+
+          <stop offset=".21" stopColor="#ed7770" stopOpacity=".88">
+
+          </stop>
+
+          <stop offset=".35" stopColor="#ed7770" stopOpacity=".74">
+
+          </stop>
+
+          <stop offset=".52" stopColor="#ed7770" stopOpacity=".55">
+
+          </stop>
+
+          <stop offset=".71" stopColor="#ed7770" stopOpacity=".29">
+
+          </stop>
+
+          <stop offset=".9" stopColor="#ed7770" stopOpacity="0">
+
+          </stop>
+
+        </radialGradient>
+
+        <ellipse cx="29.22" cy="71.77" rx="19.27" ry="14.77" fill="url(#IconifyId17ecdb2904d178eab6093)">
+
+        </ellipse>
+
+        <radialGradient id="IconifyId17ecdb2904d178eab6094" cx="65.94" cy="68.87" r="20" gradientTransform="matrix(1 0 0 -1 0 130)" gradientUnits="userSpaceOnUse">
+
+          <stop offset="0" stopColor="#ff4900">
+
+          </stop>
+
+          <stop offset=".38" stopColor="#fe4700">
+
+          </stop>
+
+          <stop offset=".59" stopColor="#fa3f00">
+
+          </stop>
+
+          <stop offset=".76" stopColor="#f43100">
+
+          </stop>
+
+          <stop offset=".9" stopColor="#eb1e00">
+
+          </stop>
+
+          <stop offset="1" stopColor="#e30c00">
+
+          </stop>
+
+        </radialGradient>
+
+        <circle cx="64" cy="66.94" r="14.62" fill="url(#IconifyId17ecdb2904d178eab6094)">
+
+        </circle>
+
+        <linearGradient id="IconifyId17ecdb2904d178eab6095" gradientUnits="userSpaceOnUse" x1="25.134" y1="126.28" x2="25.134" y2="86.18" gradientTransform="matrix(1 0 0 -1 0 130)">
+
+          <stop offset="0" stopColor="#ff4900">
+
+          </stop>
+
+          <stop offset="1" stopColor="#e30c00">
+
+          </stop>
+
+        </linearGradient>
+
+        <path d="M38.63 5.24a8.272 8.272 0 0 0-8 6c-6.4-4.76-15.44-3.43-20.2 2.96c-1.86 2.5-2.86 5.54-2.86 8.67c0 1.96.39 3.89 1.16 5.69c-4.9 2.54-6.82 8.58-4.28 13.48s8.58 6.82 13.48 4.28c3.31-1.72 5.4-5.14 5.4-8.87v-.18c7.45-.67 13.16-6.92 13.16-14.4c0-.45 0-.9-.07-1.34c.72.21 1.47.31 2.22.31c4.58 0 8.3-3.72 8.3-8.3s-3.72-8.3-8.3-8.3h-.01z" fill="url(#IconifyId17ecdb2904d178eab6095)">
+
+        </path>
+
+        <path d="M111.49 29.67c5.33 8.6 8.11 18.84 8.11 30.23c0 16.9-6.1 31.2-17.6 41.4c-10.6 9.3-25 14.5-40.4 14.5c-18.06 0-37-7.35-48.18-22.94c10.76 17.66 31 25.94 50.18 25.94c15.4 0 29.8-5.2 40.4-14.5c11.5-10.2 17.6-24.5 17.6-41.4c0-12.74-3.47-24.06-10.11-33.23z" fill="#adbcc3">
+
+        </path>
+
+        <linearGradient id="IconifyId17ecdb2904d178eab6096" gradientUnits="userSpaceOnUse" x1="103.341" y1="126.28" x2="103.341" y2="86.18" gradientTransform="matrix(1 0 0 -1 0 130)">
+
+          <stop offset="0" stopColor="#ff4900">
+
+          </stop>
+
+          <stop offset="1" stopColor="#e30c00">
+
+          </stop>
+
+        </linearGradient>
+
+        <path d="M119.71 28.56c3.14-7.34-.27-15.84-7.62-18.98c-1.8-.77-3.73-1.16-5.68-1.16c-3.11 0-6.13 1-8.62 2.87c-1.25-4.41-5.83-6.96-10.24-5.72s-6.96 5.83-5.72 10.24a8.286 8.286 0 0 0 7.95 6.03c.75 0 1.49-.11 2.21-.31c-.03.45-.03.89 0 1.34c0 7.48 5.71 13.73 13.16 14.4v.18c.01 5.52 4.49 10 10.01 9.99c5.52-.01 10-4.49 9.99-10.01c0-3.73-2.09-7.15-5.4-8.87h-.04z" fill="url(#IconifyId17ecdb2904d178eab6096)">
+
+        </path>
+
+        <path d="M44 40.94c-4.19 0-8 3.54-8 9.42s3.81 9.41 8 9.41c4.2 0 8-3.54 8-9.41s-3.76-9.42-8-9.42z" fill="#422b0d">
+
+        </path>
+
+        <g>
+
+          <path d="M43.65 44.87a2.874 2.874 0 0 0-3.82 1.34c-.53 1.11-.29 2.44.6 3.3c1.42.68 3.13.08 3.82-1.34c.53-1.11.29-2.44-.6-3.3z" fill="#896024">
+
+          </path>
+
+        </g>
+
+        <path d="M85.37 40.94c-4.19 0-8 3.54-8 9.42s3.81 9.41 8 9.41c4.19 0 8-3.54 8-9.41s-3.81-9.42-8-9.42z" fill="#422b0d">
+
+        </path>
+
+        <g>
+
+          <path d="M85 44.87a2.874 2.874 0 0 0-3.82 1.34c-.53 1.11-.29 2.44.6 3.3c1.42.68 3.13.08 3.82-1.34c.53-1.11.29-2.44-.6-3.3z" fill="#896024">
+
+          </path>
+
+        </g>
+
+        <linearGradient id="IconifyId17ecdb2904d178eab6097" gradientUnits="userSpaceOnUse" x1="36.742" y1="37.06" x2="91.758" y2="37.06" gradientTransform="matrix(1 0 0 -1 0 130)">
+
+          <stop offset="0" stopColor="#ff4900">
+
+          </stop>
+
+          <stop offset="1" stopColor="#e30c00">
+
+          </stop>
+
+        </linearGradient>
+
+        <path d="M64.25 101.44c-12.74 0-21.82-6.61-24.55-10.77a4.58 4.58 0 0 1-.56-4.67c.53-.97 1.56-1.57 2.67-1.56c.41 0 .82.07 1.21.2a72.32 72.32 0 0 0 21.28 3.07c7.17.04 14.31-1 21.18-3.07c.39-.13.8-.19 1.21-.2c1.11-.01 2.14.59 2.67 1.56a4.58 4.58 0 0 1-.56 4.67c-2.73 4.16-11.8 10.77-24.55 10.77z" fill="#422b0d" stroke="url(#IconifyId17ecdb2904d178eab6097)" strokeWidth="4" strokeMiterlimit="10">
+
+        </path>
+
+      </g>
+
+    </svg>
+  )
+}

@@ -1,18 +1,28 @@
-import { Players } from "../models/matches"
+import { Players, Teams } from "../models/matches"
 import Versus from '../assets/vs.png'
-import { Damage, Dollar, HeadShot, HighScore, Skull } from "./Icons"
+import { Clown, Crown, Damage, Dollar, HeadShot, HighScore, Skull } from "./Icons"
+
 type Props = {
-  playersData: Players | undefined
+  playersData: Players | undefined,
+  teams: Teams | undefined
 }
-export const MatchPlayers = ({ playersData }: Props) => {
+export const MatchPlayers = ({ playersData, teams }: Props) => {
   const blueTeam = playersData?.blue
   const redTeam = playersData?.red
-
   return (
     <>
       <div className="flex flex-col w-full lg:flex-row p-3">
-
         <div className="grid flex-grow h-full card rounded-box place-items-center bg-info p-2 gap-2">
+          <div className="text-center m-3 text-newBlack font-bold text-2xl">
+            <div className="flex justify-center gap-6 justify-items-center items-center">
+              <h1>{teams?.blue.has_won ? 'Vistory' : 'Defeated'}</h1>
+              <Clown width="50" height="50" />
+            </div>
+            <div className="flex gap-2">
+              <p>Rounds won {teams?.blue.rounds_won}</p>
+              <p>Rounds lost {teams?.blue.rounds_lost}</p>
+            </div>
+          </div>
           {
             blueTeam?.map(b => (
               <div className='stats shadow w-full' style={{ backgroundImage: `url(${b.assets.card.wide})` }} key={b.puuid}>
@@ -85,7 +95,16 @@ export const MatchPlayers = ({ playersData }: Props) => {
         </div>
 
         <div className="grid flex-grow h-full card rounded-box place-items-center bg-newRed p-2 gap-2">
-
+          <div className="text-center m-3 text-newBlack font-bold text-2xl">
+            <div className="flex justify-center gap-6 justify-items-center items-center">
+              <h1>{teams?.red.has_won ? 'Victory' : 'Defeated'}</h1>
+              <Crown width="50" height="50" />
+            </div>
+            <div className="flex gap-2">
+              <p>Rounds won {teams?.red.rounds_won}</p>
+              <p>Rounds lost {teams?.red.rounds_lost}</p>
+            </div>
+          </div>
           {
             redTeam?.map(b => (
               <div className='stats shadow w-full' style={{ backgroundImage: `url(${b.assets.card.wide})` }} key={b.puuid}>

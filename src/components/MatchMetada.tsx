@@ -7,9 +7,6 @@ type Props = {
 export const MatchMetada = ({ metadata }: Props) => {
   return (
     <article className="p-5 w-3/4 ">
-      <div className="text-center text-3xl mb-10">
-        <h1>Last match</h1>
-      </div>
       <div className="flex gap-2 flex-wrap justify-evenly w-100 justify-items-center items-center text-2xl text-center">
         <div className="alert bg-neutral shadow-lg flex flex-row justify-evenly flex-wrap text-center gap-10  ">
           <div className="flex justify-center justify-items-center flex-col">

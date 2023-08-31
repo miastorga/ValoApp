@@ -13,8 +13,9 @@ export const SearchAccount = () => {
   const refId = useRef<HTMLInputElement>(null);
   const refTagLine = useRef<HTMLInputElement>(null);
   const [url, setUrl] = useState<string | null>(null);
-  const { data, isLoading } = getAccount(url)
-  const { metadata, rounds, teams, players } = matchMock.data[0]
+
+  const { data, isLoading, matches, loadingMatches } = getAccount(url)
+  console.log('matches', matches?.data[0])
   // console.log(matchMock.data[0])
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>): Promise<void> {
@@ -44,7 +45,6 @@ export const SearchAccount = () => {
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
                 </svg>
-
                 Search</button>}
               {
                 isLoading && <button className="btn">
@@ -58,8 +58,17 @@ export const SearchAccount = () => {
         {data?.data && <AccountInfo data={data?.data} />}
         {data?.errors && <Error status={data.status} />}
       </article>
-      <MatchMetada metadata={metadata as Metadata} />
-      <MatchPlayers playersData={players as Players} />
+      {
+        matches?.data[0] && (
+          <>
+            <div className="text-center text-5xl mb-0">
+              <h1>Last match</h1>
+            </div>
+            <MatchMetada metadata={matches?.data[0].metadata as Metadata} />
+            <MatchPlayers playersData={matches?.data[0].players as Players} teams={matches?.data[0].teams} />
+          </>
+        )
+      }
     </>
   )
 }
