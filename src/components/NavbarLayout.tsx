@@ -45,7 +45,6 @@ export const NavbarLayout = () => {
       </div>
       <div className="navbar-end ">
         <Link to={'https://github.com/miastorga'} className='text-newWhite flex justify-center items-center flex-row btn btn-error sm:btn-sm md:btn-md '>
-          Github
           <Github width='50' height='50' />
         </Link>
       </div>
