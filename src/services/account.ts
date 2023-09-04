@@ -12,10 +12,9 @@ export const MATCH = 'https://api.henrikdev.xyz/valorant/v3/by-puuid/matches/' /
 
 export function getAccount(url: string | null): ApiResponse {
   const fetcher = (url: string) => fetch(url).then(res => res.json());
-  const { data: account, isLoading } = useSWR<ValorantSwaggerResponse>(url, fetcher);
-  console.log('account', account)
-  console.log('account data', account?.data)
-  console.log('account error', account?.errors)
+  const { data: account, isLoading } = useSWR<ValorantSwaggerResponse>(url, fetcher, {
+    keepPreviousData: true
+  });
 
   let affinity;
   let puuid;
@@ -27,7 +26,7 @@ export function getAccount(url: string | null): ApiResponse {
   }
 
   const { data: matches, isLoading: loadingMatches } = useSWR<MatchesResponse>(nextUrl, fetcher);
-  console.log(loadingMatches)
+
   return {
     data: account,
     isLoading,

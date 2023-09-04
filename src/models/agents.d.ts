@@ -1,13 +1,13 @@
-export interface Agents {
+export interface AgentsResponse {
   status: number
-  data: Daum[]
+  data: Agent[]
 }
-export type Agent = {
+export type AgentResponse = {
   status: number,
-  data: Daum
+  data: Agent
 }
 
-export interface Daum {
+export interface Agent {
   uuid: string
   displayName: string
   description: string

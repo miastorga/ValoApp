@@ -16,7 +16,7 @@ export const MatchPlayers = ({ playersData, teams }: Props) => {
           <div className="text-center m-3 text-newBlack font-bold text-2xl">
             <div className="flex justify-center gap-6 justify-items-center items-center">
               <h1>{teams?.blue.has_won ? 'Vistory' : 'Defeated'}</h1>
-              <Clown width="50" height="50" />
+              {teams?.blue.has_won ? <Crown width="50" height="50" /> : <Clown width="50" height="50" />}
             </div>
             <div className="flex gap-2">
               <p>Rounds won {teams?.blue.rounds_won}</p>
@@ -98,7 +98,8 @@ export const MatchPlayers = ({ playersData, teams }: Props) => {
           <div className="text-center m-3 text-newBlack font-bold text-2xl">
             <div className="flex justify-center gap-6 justify-items-center items-center">
               <h1>{teams?.red.has_won ? 'Victory' : 'Defeated'}</h1>
-              <Crown width="50" height="50" />
+              {teams?.red.has_won ? <Crown width="50" height="50" /> : <Clown width="50" height="50" />}
+
             </div>
             <div className="flex gap-2">
               <p>Rounds won {teams?.red.rounds_won}</p>

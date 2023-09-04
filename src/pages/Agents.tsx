@@ -1,31 +1,41 @@
 import { Link } from 'react-router-dom'
-import agentsMock from '../mocks/agents.json'
-import { ChangeEvent, useState } from 'react'
+import { ChangeEvent, useEffect, useState } from 'react'
+import { getAgents } from '../services/agents'
 
 export const Agents = () => {
-  const [agents, setAgents] = useState(agentsMock.data)
+  const { agents: agentsApi, isLoading } = getAgents()
+  console.log('agentes: ', agentsApi?.data)
+  const [agents, setAgents] = useState(agentsApi?.data)
+  console.log('agenes state: ', agents)
   const [name, setName] = useState('')
   const [filter, setFilter] = useState('')
-  const roles = [...new Set(agentsMock['data'].map(data => data.role.displayName))];
+  const roles = [...new Set(agentsApi?.data.map(data => data.role.displayName))];
+
+  useEffect(() => {
+    if (agentsApi?.data) {
+      setAgents(agentsApi.data);
+    }
+  }, [agentsApi?.data]);
 
   function filterAgents(currentName: string, currentFilter: string) {
-    let filteredAgents = agentsMock.data;
+    let filteredAgents = agentsApi?.data
+
+    console.log(filteredAgents)
 
     if (currentName.trim() !== '') {
-      filteredAgents = filteredAgents.filter(agent =>
+      filteredAgents = filteredAgents?.filter(agent =>
         agent.displayName.toLowerCase().startsWith(currentName.toLowerCase())
       );
     }
 
     if (currentFilter.trim() !== '' && currentFilter !== 'All') {
-      filteredAgents = filteredAgents.filter(agent =>
+      filteredAgents = filteredAgents?.filter(agent =>
         agent.role.displayName === currentFilter
       );
     }
 
     setAgents(filteredAgents);
   }
-
 
   function handleSearch(e: ChangeEvent<HTMLInputElement>): void {
     const newName = e.target.value;
@@ -39,8 +49,12 @@ export const Agents = () => {
     filterAgents(name, newRole);
   }
 
+  if (isLoading) {
+    return <h1>Loading...</h1>
+  }
+
   return (
-    <>
+    <main className='bg-newBlack'>
       <form className="flex flex-col w-auto sm:flex-row md:flex-row lg:w-3/6" onSubmit={e => e.preventDefault()}>
         <div className="grid flex-grow p-5 card rounded-box place-items-center">
           <input type="text" placeholder="Gekko" className="input input-bordered w-full max-w-xs" value={name} onChange={handleSearch} />
@@ -57,12 +71,12 @@ export const Agents = () => {
           </select>
         </div>
       </form >
-      <div className="gap-3 m-4 bg-newBlack" style={{
+      <div className="gap-3 bg-newBlack" style={{
         display: 'grid', gridTemplateColumns: 'repeat(auto-fill,minmax(18rem,1fr))',
         gridTemplateRows: 'repeat(3,1fr)',
       }}>
         {
-          agents.map(agent => (
+          agents && agents?.map(agent => (
             <Link to={`/agents/${agent.uuid}`} key={agent.uuid}>
               <div className='rounded-md' style={{
                 backgroundImage: `url(${agent.background})`,
@@ -76,13 +90,12 @@ export const Agents = () => {
                   <figure >
                     <img className='w-40' src={agent.displayIcon} />
                   </figure>
-
                 </div>
               </div>
             </Link>
           ))
         }
       </div >
-    </>
+    </main>
   )
 }
