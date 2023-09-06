@@ -12,7 +12,7 @@ export const Error = ({ status }: Props) => {
   let errorMessage = ''
   switch (status) {
     case 400:
-      errorMessage = ERRORS_MESSAGES.missingQuery
+      errorMessage = ERRORS_MESSAGES.serverError
       break;
     case 404:
       errorMessage = ERRORS_MESSAGES.entityNotFound

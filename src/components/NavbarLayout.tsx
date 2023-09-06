@@ -10,8 +10,6 @@ export const NavbarLayout = () => {
     'Agents',
     'Weapons',
     'Maps',
-    'Gamemodes',
-    'Buddies'
   ]
   const activeStyle = {
     color: '#FE4655',
