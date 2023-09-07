@@ -1,4 +1,4 @@
-type Data = {
+export type Data = {
   uuid: string;
   displayName: string; // localized
   category: string;

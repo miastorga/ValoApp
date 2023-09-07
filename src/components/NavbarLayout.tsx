@@ -9,7 +9,7 @@ export const NavbarLayout = () => {
   const menuItems = [
     'Agents',
     'Weapons',
-    'Maps',
+    // 'Maps',
   ]
   const activeStyle = {
     color: '#FE4655',
