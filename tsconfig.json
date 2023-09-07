@@ -8,7 +8,6 @@
       "ESNext"
     ],
     "allowJs": false,
-    // "allowImportingTsExtensions": true,
     "skipLibCheck": true,
     "esModuleInterop": false,
     "allowSyntheticDefaultImports": true,
