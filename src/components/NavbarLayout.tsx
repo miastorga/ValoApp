@@ -42,8 +42,8 @@ export const NavbarLayout = () => {
         </ul>
       </div>
       <div className="navbar-end ">
-        <Link to={'https://github.com/miastorga'} className='text-newWhite flex justify-center items-center flex-row btn btn-error sm:btn-sm md:btn-md '>
-          <Github width='50' height='50' />
+        <Link to={'https://github.com/miastorga'} className='text-newWhite flex justify-center items-center flex-row btn btn-error sm:btn-sm  content-center'>
+          <Github width='40' height='40' />
         </Link>
       </div>
     </div >
