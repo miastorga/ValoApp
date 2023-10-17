@@ -3,17 +3,18 @@ import { Link, NavLink, useLocation } from 'react-router-dom'
 import { Github } from './Icons'
 
 export const NavbarLayout = () => {
-  const { pathname } = useLocation()
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
-  // Revisar Navbar y Dropdown component
   const menuItems = [
     'Agents',
     'Weapons',
-    // 'Maps',
   ]
   const activeStyle = {
     color: '#FE4655',
   }
+
+  const inactiveStyle = {
+    color: 'white'
+  };
+
 
   return (
     <div className="navbar bg-newBlack">
@@ -25,18 +26,24 @@ export const NavbarLayout = () => {
           <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
             {
               menuItems.map((m, idx) => (
-                <NavLink key={idx} to={`/${m.toLowerCase()}`} className="px-5 text-lg text-white" style={({ isActive }) => isActive ? activeStyle : {}}>{m}</NavLink>
+                <NavLink
+                  key={idx}
+                  to={`/${m.toLowerCase()}`}
+                  className="px-5 text-lg"
+                  style={({ isActive }) => isActive ? activeStyle : inactiveStyle}>
+                  {m}
+                </NavLink>
               ))
             }
           </ul>
         </div>
-        <NavLink to="/" className="btn btn-ghost normal-case text-3xl" style={({ isActive }) => isActive ? activeStyle : {}}>Valorant</NavLink>
+        <NavLink to="/" className="btn btn-ghost normal-case text-3xl" style={({ isActive }) => isActive ? activeStyle : inactiveStyle}>Valorant</NavLink>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
           {
             menuItems.map((m, idx) => (
-              <NavLink key={idx} to={`/${m.toLowerCase()}`} className="px-5 text-lg " style={({ isActive }) => isActive ? activeStyle : {}}>{m}</NavLink>
+              <NavLink key={idx} to={`/${m.toLowerCase()}`} className="px-5 text-lg " style={({ isActive }) => isActive ? activeStyle : inactiveStyle}>{m}</NavLink>
             ))
           }
         </ul>

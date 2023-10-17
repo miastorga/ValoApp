@@ -6,12 +6,11 @@ export const AgentDetail = () => {
   const { uuid } = useParams()
   const { agent, isLoading } = getAgent(uuid)
 
-  console.log(agent?.data.abilities.length)
   if (isLoading) {
-    return <span className="loading loading-spinner loading-lg"></span>
+    return <div className="loading loading-spinner loading-lg neutral" ></div>
   }
   return (
-    <div className="flex flex-col w-full lg:flex-row gap-1 p-1 bg-newBlack" >
+    <div className="flex flex-col w-full lg:flex-row gap-1 p-1 bg-newBlack" style={{ background: 'black' }}>
       <div className="grid flex-grow card w-full" style={{
         backgroundImage: `url(${agent?.data.background})`,
         background: `linear-gradient(90deg,
@@ -26,16 +25,16 @@ export const AgentDetail = () => {
           </div>
         </div>
       </div>
-      <div className="flex-grow card bg-base-300 w-full p-2">
+      <div className="flex-grow card bg-base-300 w-full p-2" style={{ background: 'black' }}>
         <div className='text-center'>
           <div className='flex gap-4 justify-center mb-2'>
-            <p className='text-4xl'>{agent?.data.displayName}</p>
+            <p className='text-4xl' style={{ color: 'white' }}>{agent?.data.displayName}</p>
             <img className='w-10' src={agent?.data.role.displayIcon} alt="" />
           </div>
-          <p>{agent?.data.description}</p>
+          <p style={{ color: 'white' }}>{agent?.data.description}</p>
         </div>
         <div>
-          <p className='text-3xl text-center m-5'>Abilities</p>
+          <p className='text-3xl text-center m-5' style={{ color: 'white' }}>Abilities</p>
           <div className='carousel w-full'>
             {
               agent?.data.abilities.map((a, idx) => (
@@ -43,8 +42,8 @@ export const AgentDetail = () => {
                   <div className="card w-full carousel-item relative " id={`slide${idx + 1}`}>
                     <figure><img src={a.displayIcon} alt="ability-icon" /></figure>
                     <div className="card-body">
-                      <h2 className="card-title">{a.displayName}</h2>
-                      <p>{a.description}</p>
+                      <h2 className="card-title" style={{ color: 'white' }}>{a.displayName}</h2>
+                      <p style={{ color: 'white' }}>{a.description}</p>
                     </div>
                   </div>
                 </React.Fragment>

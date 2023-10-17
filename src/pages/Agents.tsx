@@ -53,7 +53,10 @@ export const Agents = () => {
   }
 
   return (
-    <main className='bg-newBlack mx-2'>
+    <main className='bg-newBlack' style={{
+      backgroundColor: 'black',
+      display: 'flex', flexDirection: 'column', minHeight: '100vh'
+    }}>
       <form className="flex flex-col w-auto sm:flex-row md:flex-row lg:w-3/6" onSubmit={e => e.preventDefault()}>
         <div className="grid flex-grow p-5 card rounded-box place-items-center">
           <input type="text" placeholder="Gekko" className="input input-bordered w-full max-w-xs" value={name} onChange={handleSearch} />

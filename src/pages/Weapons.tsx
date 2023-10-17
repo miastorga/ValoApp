@@ -35,11 +35,11 @@ export const Weapons = () => {
   }
 
   return (
-    <div className='bg-newBlack flex flex-col '>
+    <div className='bg-newBlack flex flex-col ' style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
       <div className='flex items-center justify-start px-20'>
         <select className="select select-bordered sm:w-3/12" onChange={handleFilter}>
-          <option disabled value='Pick rol'>Pick weapon type</option>
-          <option value='All'>All</option>
+          <option disabled value='Pick rol' style={{ color: 'white' }}>Pick weapon type</option>
+          <option value='All' style={{ color: 'white' }}>All</option>
           {
             weaponType.map(w => (
               <option key={w} value={w} >{w}</option>
@@ -55,8 +55,8 @@ export const Weapons = () => {
           weapons && weapons?.map(w => (
             <div className="card rounded-none p-3 " key={w.uuid}>
               <div className="p-0 card-body">
-                <h2 className="card-title text-4xl">{w.displayName}</h2>
-                <p>{w.shopData?.category}</p>
+                <h2 className="card-title text-4xl" style={{ color: 'white' }}>{w.displayName}</h2>
+                <p style={{ color: 'white' }}>{w.shopData?.category}</p>
                 <div className="card-actions justify-end">
                 </div>
               </div>

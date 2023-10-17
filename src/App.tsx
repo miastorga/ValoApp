@@ -10,9 +10,9 @@ import { SWRConfig } from 'swr'
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter >
       <SWRConfig value={{ revalidateOnFocus: false }}>
-        <Routes>
+        <Routes >
           <Route element={<PageLayout />}>
             <Route path='/' element={<Home />} />
             <Route path='/agents' element={<Agents />} />
